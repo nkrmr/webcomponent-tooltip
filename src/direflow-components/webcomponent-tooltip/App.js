@@ -64,7 +64,13 @@ const App = () => {
     );
   }
   return (
-    <div>
+    <div
+      style={{
+        display: "inline-block",
+        borderBottom: "1px dotted black",
+        cursor: "pointer"
+      }}
+    >
       <TriangleTooltip label="Notifications Really Long to Trigger Collision">
         <span aria-hidden>Text de test</span>
       </TriangleTooltip>
