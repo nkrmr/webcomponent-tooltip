@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useTooltip, TooltipPopup } from "@reach/tooltip";
 import Portal from "@reach/portal";
 
-const App = props => {
+const App = ({ text, content }) => {
   // Center the tooltip, but collisions will win
   const centered = (triggerRect, tooltipRect) => {
     const triggerCenter = triggerRect.left + triggerRect.width / 2;
@@ -64,6 +64,7 @@ const App = props => {
       </>
     );
   }
+
   return (
     <div
       style={{
@@ -72,16 +73,20 @@ const App = props => {
         cursor: "pointer"
       }}
     >
-      <slot name="tootltip-text" />
+      <TriangleTooltip label={content}>
+        <span aria-hidden>{text}</span>
+      </TriangleTooltip>
     </div>
   );
 };
 
 App.propTypes = {
+  text: PropTypes.string,
   content: PropTypes.string
 };
 
 App.defaultProps = {
+  text: "",
   content: ""
 };
 
