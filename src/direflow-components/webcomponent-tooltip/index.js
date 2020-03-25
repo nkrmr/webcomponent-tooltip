@@ -8,10 +8,12 @@ export default DireflowComponent.create({
   }
   // plugins: [
   //   {
-  //     name: "external-loader",
+  //     name: 'font-loader',
   //     options: {
-  //       paths: ["https://unpkg.com/@reach/tooltip@0.9.0/styles.css"]
-  //     }
-  //   }
-  // ]
+  //       google: {
+  //         families: ['Advent Pro', 'Noto Sans JP'],
+  //       },
+  //     },
+  //   },
+  // ],
 });

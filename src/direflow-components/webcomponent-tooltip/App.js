@@ -1,8 +1,9 @@
 import React, { cloneElement } from "react";
+import PropTypes from "prop-types";
 import { useTooltip, TooltipPopup } from "@reach/tooltip";
 import Portal from "@reach/portal";
 
-const App = () => {
+const App = props => {
   // Center the tooltip, but collisions will win
   const centered = (triggerRect, tooltipRect) => {
     const triggerCenter = triggerRect.left + triggerRect.width / 2;
@@ -71,11 +72,17 @@ const App = () => {
         cursor: "pointer"
       }}
     >
-      <TriangleTooltip label="Notifications Really Long to Trigger Collision">
-        <span aria-hidden>Text de test</span>
-      </TriangleTooltip>
+      <slot name="tootltip-text" />
     </div>
   );
+};
+
+App.propTypes = {
+  content: PropTypes.string
+};
+
+App.defaultProps = {
+  content: ""
 };
 
 export default App;
